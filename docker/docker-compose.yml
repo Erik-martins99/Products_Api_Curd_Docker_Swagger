@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: bitnami/postgresql:latest
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=products
+    volumes:
+      - products_pg_data:/bitnami/postgresql
+
+volumes:
+  products_pg_data:
+
+# up docker compose: -> docker compose up -d
+# Stop docker compose: -> docker-compose down
+# Listar containers em execução: -> docker ps
